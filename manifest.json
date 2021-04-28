@@ -1,0 +1,59 @@
+{
+    "name": "stitchcounter",
+    "short_name": "stitchcounter",
+    "start_url": "index.html",
+    "description": "a lightweight offline compatible stitch counter for the web",
+    "icons": [
+        {
+            "src": "./icons/favicon-32.png",
+            "type": "image/png",
+            "sizes": "32x32",
+            "purpose": "any"
+        },
+        {
+            "src": "./icons/favicon-128.png",
+            "type": "image/png",
+            "sizes": "128x128",
+            "purpose": "any"
+        },
+        {
+            "src": "./icons/favicon-192.png",
+            "type": "image/png",
+            "sizes": "192x192",
+            "purpose": "any"
+        },
+        {
+            "src": "./icons/favicon-512.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "any"
+        },
+        {
+            "src": "./icons/favicon-svg.svg",
+            "type": "image/svg+xml",
+            "sizes": "any",
+            "purpose": "any"
+        },
+        {
+            "src": "./icons/maskable-196.png",
+            "type": "image/png",
+            "sizes": "196x196",
+            "purpose": "maskable"
+        },
+        {
+            "src": "./icons/maskable-512.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "maskable"
+        },
+        {
+            "src": "./icons/maskable-svg.svg",
+            "type": "image/svg+xml",
+            "sizes": "any",
+            "purpose": "maskable"
+        }
+    ],
+    "display": "standalone",
+    "background_color": "#330033",
+    "theme_color": "#663399"
+}

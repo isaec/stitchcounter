@@ -1,0 +1,343 @@
+@font-face {
+    font-family: 'Lexend';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./fonts/lexend-v2-stripped-regular.woff2') format('woff2'), url('./fonts/lexend-v2-stripped-regular.woff') format('woff');
+}
+
+body {
+    background-color: rgb(51, 51, 51);
+    font-family: 'Lexend', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: -webkit-fill-available;
+}
+
+#mainBlock, #countUpper, #countLower, #titleBlock, #rowControls, #optionsDiv {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+#countBlock, #countButtons, #rowBlock, #count, div.center {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+div.center {
+    flex-grow: 0;
+}
+
+div.purpleTop {
+    border-top: 3px solid rgb(102, 51, 102);
+}
+
+#rowBlock {
+    background-color: rgb(51, 0, 51)
+}
+
+#countBlock {
+    flex-grow: 3;
+}
+
+#countLower, #titleBlock {
+    flex-grow: 0;
+}
+
+#titleBlock {
+    flex-basis: 8.23vmin;
+}
+
+div.modal {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+div.modal-content {
+    color-scheme: dark;
+    background-color: rgb(24, 26, 27);
+    color: rgb(232, 230, 227);
+    margin: 5% auto;
+    border: 3px solid rgb(102, 51, 102);
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+div.modal-text {
+    padding: 2vmin;
+    overflow-y: auto;
+}
+
+p, dl {
+    font-weight: 100;
+    font-size: 26px;
+    font-size: clamp(100%, 1rem + 2vw, 24px);
+    line-height: 1.6;
+}
+
+p {
+    margin: 1.5vmin 0vmin;
+}
+
+dt {
+    font-weight: 600;
+    margin: .3em 0 0 .2em;
+    background-color: rgb(51, 26, 51);
+    padding: .1em .3em;
+}
+
+dd {
+    margin-bottom: .1em;
+    display: list-item;
+}
+
+#count {
+    background-color: rgb(102, 51, 153);
+    justify-content: center;
+    align-items: center;
+}
+
+#countNumber {
+    font-size: 25vmin;
+}
+
+#countLabel {
+    font-size: 13vmin;
+}
+
+button.counter, button.incSelect {
+    flex-grow: 1;
+}
+
+button {
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 10vmin;
+    font-family: 'Lexend', sans-serif;
+    transition: color 1.5s cubic-bezier(.22, .75, .29, .82), background-color 1.5s cubic-bezier(.22, .75, .29, .82);
+    touch-action: manipulation;
+    -ms-touch-action: manipulation;
+}
+
+button.counter {
+    font-size: 15vmin;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:active {
+    transition: color .5s cubic-bezier(.04, 1.11, .09, .91), background-color .5s cubic-bezier(.04, 1.11, .09, .91);
+}
+
+button.purple {
+    color: rgb(232, 230, 227);
+    background-color: rgb(51, 26, 51);
+}
+
+button.purple:hover:enabled {
+    background-color: rgb(67, 35, 67);
+}
+
+button.purple:active:enabled {
+    background-color: rgb(100, 53, 100);
+}
+
+button.green {
+    color: rgb(0, 102, 0);
+    background-color: rgb(51, 153, 51);
+}
+
+button.green:hover:enabled {
+    color: rgb(0, 102, 51);
+    background-color: rgb(51, 153, 102);
+}
+
+button.green:active:enabled {
+    color: rgb(0, 102, 0);
+    background-color: rgb(0, 51, 0);
+}
+
+button.red {
+    color: rgb(102, 0, 0);
+    background-color: rgb(153, 51, 51);
+}
+
+button.red:hover:enabled {
+    color: rgb(102, 0, 51);
+    background-color: rgb(153, 51, 102);
+}
+
+button.red:active:enabled {
+    color: rgb(102, 0, 0);
+    background-color: rgb(51, 0, 0);
+}
+
+button.red:disabled {
+    color: rgb(102, 51, 51);
+    background-color: rgb(102, 51, 51);
+}
+
+button.incSelect {
+    padding: 1rem 0rem;
+    color: rgb(102, 102, 0);
+    background-color: rgb(153, 153, 51);
+}
+
+button.incSelect:hover:enabled {
+    color: rgb(102, 102, 51);
+    background-color: rgb(153, 153, 102);
+}
+
+button.incSelect:active:enabled {
+    color: rgb(0, 0, 102);
+    background-color: rgb(0, 0, 51);
+}
+
+button.incSelect:disabled {
+    color: rgb(0, 0, 102);
+    background-color: rgb(51, 51, 153);
+}
+
+button.tab, #newTab {
+    font-size: 4vmin;
+}
+
+button.tab {
+    flex: 1 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: rgb(204, 102, 204);
+    background-color: rgb(51, 0, 51);
+    padding: .75vmin;
+    padding-bottom: 1.50vmin;
+    border: 1vmin solid rgb(102, 0, 102);
+    border-bottom-style: hidden;
+}
+
+button.tab:hover:enabled {
+    color: rgb(204, 102, 255);
+    background-color: rgb(51, 0, 102);
+}
+
+button.tab:active:enabled {
+    color: rgb(255, 153, 255);
+    background-color: rgb(51, 0, 51);
+}
+
+button.tab:disabled {
+    color: white;
+    background-color: rgb(102, 0, 102);
+}
+
+#newTab {
+    width: 8vmin;
+    flex-grow: 0;
+    background-color: rgb(51, 0, 51);
+}
+
+#newTab:hover {
+    background-color: rgb(102, 0, 51);
+}
+
+#newTab:active {
+    background-color: rgb(204, 0, 51);
+}
+
+#rowControls {
+    flex-grow: 0;
+}
+
+#spacer {
+    height: 5px;
+}
+
+#tableBlock {
+    color-scheme: dark;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    flex: 1 1 1px;
+    padding: 0px 5px;
+}
+
+#newRow, table, th, td, caption, button.option {
+    font-size: 3vh;
+}
+
+#newRow {
+    flex-grow: 5;
+}
+
+button.option {
+    padding: 1rem .5rem;
+    flex-grow: 1;
+}
+
+#optionsDiv {
+    display: none;
+    flex-grow: 0;
+    flex-wrap: wrap;
+}
+
+table {
+    margin: 0 auto;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+    overflow-y: auto;
+}
+
+table, th, td, caption {
+    color: white;
+    background-color: rgb(51, 0, 51);
+}
+
+th, td, caption {
+    border: .3rem solid rgb(0, 0, 0);
+    padding: .5rem 0rem;
+}
+
+td, caption {
+    scroll-snap-align: start;
+}
+
+th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: rgb(102, 0, 102);
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

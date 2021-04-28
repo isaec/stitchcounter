@@ -1,0 +1,159 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>stitchcounter</title>
+    <meta name="author" content="isaac">
+    <meta name="description"
+        content="A lightweight online stitch counter that can be used offline without installation. Easily keep track of your stitches while knitting, crocheting, and more!">
+    <meta name="theme-color" content="#663399">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./main.css">
+    <link rel="modulepreload" href="./index.js" as="script" type="text/javascript">
+    <link rel="preload" href="./fonts/lexend-v2-stripped-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="icon" href="./icons/favicon-32.png" sizes="32x32">
+    <link rel="icon" href="./icons/favicon-128.png" sizes="128x128">
+    <link rel="icon" href="./icons/favicon-192.png" sizes="192x192">
+
+    <link rel="shortcut icon" href="./icons/favicon-196.png" sizes="196x196">
+
+    <link rel="apple-touch-icon" href="./icons/favicon-152.png" sizes="152x152">
+    <link rel="apple-touch-icon" href="./icons/favicon-180.png" sizes="180x180">
+</head>
+
+<body>
+    <script src="./index.js" type="module" async="true"></script>
+
+    <div id="helpModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-text">
+                <p>
+                    Welcome to Stitchcounter! Stitchcounter can be used to keep track of stitches for just about
+                    anything
+                    that has stitches (knitting, crocheting, other yarncraft), and works offline on modern browsers!
+                    Stitchcounter is lightweight and will remember your stitches even if you close the page, so long as
+                    you
+                    do not clear your history, or view it in an incognito window. While it may work on mobile,
+                    stitchcounter
+                    was not intended for devices as small as phones - there is probably a tool better suited to counting
+                    stitches in your phone's app store.
+                </p>
+                <dl>
+                    <dt>find this overview again</dt>
+                    <dd>click options > help</dd>
+
+                    <dt>add stitches</dt>
+                    <dd>click the big green plus</dd>
+                    <dd>press the up arrow on keyboard</dd>
+                    <dd>press the spacebar</dd>
+
+                    <dt>remove stitches</dt>
+                    <dd>click the big red minus</dd>
+                    <dd>press the down arrow on keyboard</dd>
+
+                    <dt>change increment</dt>
+                    <dd>this is the amount of stitches you add or remove at once</dd>
+                    <dd>click one of the numbers on the bottom</dd>
+                    <dd>press the right or left arrow keys</dd>
+
+                    <dt>add a new row</dt>
+                    <dd>click the yellow new row button, above the table</dd>
+
+                    <dt>remove the newest row</dt>
+                    <dd>click options > remove row</dd>
+
+                    <dt>make a new counter/tab</dt>
+                    <dd>click the dark purple button in the top right hand corner</dd>
+                    <dd>the rows, increment, and number of stitches are isolated to their counter</dd>
+
+                    <dt>switch counters/tabs</dt>
+                    <dd>click the name of the counter from the top selection of tabs</dd>
+
+                    <dt>open multiple tabs at once</dt>
+                    <dd>
+                        Make a new tab on your device, and go to stitchcounter.xyz again. Arrange your windows so both
+                        instances of stitchcounter are visible, then select a different counter on each window.
+                    </dd>
+
+                    <dt>remove a counter/tab</dt>
+                    <dd>select the tab, then options > delete tab</dd>
+
+                    <dt>hide/show all tabs</dt>
+                    <dd>click options > toggle tabs</dd>
+
+                    <dt>clear all data</dt>
+                    <dd>click options > reset everything</dd>
+                </dl>
+            </div>
+            <div class="center purpleTop">
+                <button id="closeHelp" class="purple noselect option">close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="titleBlock">
+        <button type="button" id="newTab" class="noselect">+</button>
+    </div>
+
+    <div id="optionsDiv" style="display: none;">
+        <button type="reset" id="reset" class="red noselect option">reset everything</button>
+        <button type="reset" id="removeTab" class="red noselect option">delete tab</button>
+        <button type="reset" id="removeRow" class="red noselect option">remove row</button>
+        <button type="button" id="toggleTab" class="incSelect noselect option">toggle tabs</button>
+        <button type="button" id="help" class="green noselect option">help</button>
+    </div>
+
+    <div id="mainBlock">
+
+        <div id="countBlock">
+            <div id="countUpper">
+
+                <div id="countButtons">
+
+                    <button type="button" id="addButton" class="counter green noselect">+</button>
+                    <button type="button" id="removeButton" class="counter red noselect" disabled>-</button>
+
+                </div>
+
+                <div id="count">
+
+                    <div id="countNumber" class="noselect">0</div>
+                    <div id="countLabel" class="noselect">stitches</div>
+
+                </div>
+
+            </div>
+            <div id="countLower">
+                <button type="button" id="mod1" class="incSelect noselect">1</button>
+                <button type="button" id="mod3" class="incSelect noselect">3</button>
+                <button type="button" id="mod5" class="incSelect noselect">5</button>
+                <button type="button" id="mod10" class="incSelect noselect">10</button>
+            </div>
+
+        </div>
+        <div id="rowBlock">
+            <div id="rowControls">
+                <button type="button" id="newRow" class="incSelect noselect option">new row</button>
+                <button type="button" id="options" class="green noselect option">options</button>
+            </div>
+            <div id="spacer"></div>
+            <div id="tableBlock">
+                <table id="stitchTable">
+                    <caption>row stitchcounts</caption>
+                    <tr>
+                        <th id="tableHeadRow">row</th>
+                        <th id="tableHeadStitches">stitches</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
